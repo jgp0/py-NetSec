@@ -1,4 +1,3 @@
-# Nahuel Ivan Troisi
 
 import os
 import time
@@ -7,27 +6,27 @@ import logging
 import json
 import shutil
 
-# Load configuration from the file
+# Cargamos la configuración del backup desde el archivo json
 with open("/home/whippy/Descargas/backup_config", "r") as f:
     config = json.load(f)
 
-# Extract backup directories and location from the config
+# Extraemos los directorios del archivo de configuración
 BACKUP_DIRS = config["backup_dirs"]
 BACKUP_LOCATION = config["backup_location"]
 MAX_BACKUPS = config["max_backups"]
 LOG_FILE = config["log_file"]
 
-# Setup logging
+# Registro de configuración
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO)
 
-# Get the current timestamp to use as the backup folder name
+# Obtenemos la marca de tiempo actual para usar como nombre de la carpeta de copia de seguridad
 backup_folder_name = time.strftime("%Y%m%d-%H%M%S")
 
-# Create a new backup directory
+# Creamos un nuevo directorio de copia de seguridad
 backup_folder_path = os.path.join(BACKUP_LOCATION, backup_folder_name)
 os.makedirs(backup_folder_path)
 
-# Create a tar archive of each backup directory
+# Creamos un archivo tar de cada directorio de copia de seguridad
 for backup_dir in BACKUP_DIRS:
     backup_file_name = os.path.basename(backup_dir) + ".tar.gz"
     backup_file_path = os.path.join(backup_folder_path, backup_file_name)
@@ -41,7 +40,7 @@ for backup_dir in BACKUP_DIRS:
     except Exception as e:
         logging.error("Backup of %s failed: %s", backup_dir, str(e))
 
-# Remove oldest backups if there are more than the maximum allowed
+# Eliminamos las copias de seguridad más antiguas si hay más del máximo permitido
 backup_folders = sorted(os.listdir(BACKUP_LOCATION), reverse=True)
 while len(backup_folders) > MAX_BACKUPS:
     oldest_backup_folder = backup_folders.pop()
@@ -50,5 +49,5 @@ while len(backup_folders) > MAX_BACKUPS:
     shutil.rmtree(oldest_backup_path)
     backup_folders = sorted(os.listdir(BACKUP_LOCATION), reverse=True)
 
-# Wait ten seconds before running the backup again
+# Esperamos diez segundos antes de volver a ejecutar la copia de seguridad
 time.sleep(10)

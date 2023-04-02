@@ -1,4 +1,4 @@
-# Define input parameters
+# Definimos los parámetros
 param(
     [Parameter(Mandatory=$true)]
     [string]$UserName,
@@ -16,12 +16,12 @@ param(
     [SecureString]$Password
 )
 
-# Validate input parameters
+# Validamos los parámetros
 if (-not ($UserName -and $EmailAddress -and $Department -and $JobTitle -and $Password)) {
-    throw "Missing required input parameter(s)"
+    throw "Faltan los parámetros de entrada requeridos"
 }
 
-# Validate the password
+# Validamos la contraseña
 $passwordString = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Password))
 $isValidPassword = $false
 if ($passwordString -match "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$") {
@@ -29,21 +29,22 @@ if ($passwordString -match "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,
 }
 
 if (-not $isValidPassword) {
-    Write-Host "Password is not valid. It must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters."
+    Write-Host "La contraseña no es válida. Debe contener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, números y caracteres especiales"
     return
 }
 
-# Generate secure password
+# Generamos una contraseña segura
 $securePassword = ConvertTo-SecureString -String $passwordString -AsPlainText -Force
 
-# Create new user account in Active Directory
+# Creamos un nuevo usuario en Active Directory
 try {
-New-ADUser -Name $UserName -SamAccountName $UserName -UserPrincipalName "$UserName@yourdomain.com" -EmailAddress $EmailAddress -Department $Department -Title $JobTitle -AccountPassword $securePassword -Enabled $true
+New-ADUser -Name $UserName -SamAccountName $UserName -UserPrincipalName "$UserName@yourdomain.com" -EmailAddress $EmailAddress -Department $Department -Title $JobTitle 
+-AccountPassword $securePassword -Enabled $true
 } catch {
-Write-Host "Failed to create user account due to the following error: $"
+Write-Host "No se pudo crear la cuenta de usuario debido al siguiente error: $"
 }
 
-# Add user to appropriate groups based on department and job title
+# Añadimos al usuario a su respectivo grupo y departamento
 $groupNames = @()
 if ($Department -eq "Sales") {
 $groupNames += "Sales Group"
@@ -59,4 +60,4 @@ foreach ($groupName in $groupNames) {
 Add-ADGroupMember -Identity $groupName -Members $UserName
 }
 
-Write-Host "User account $UserName has been created successfully"
+Write-Host "El usuario $UserName ha sido creado correctamente"
