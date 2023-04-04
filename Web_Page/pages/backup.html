@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup</title>
+</head>
+<body style="text-align: center; background-color: black;">
+
+    <div>
+
+        <h1 style="font-family: 'Times New Roman', Times, serif; text-align: center; color: white;">BACKUP</h1>
+
+    </div>
+
+    
+    <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=3024-night&wt=none&l=python&width=680&ds=false&dsyoff=0px&dsblur=0px&wc=false&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=13.5px&lh=122%25&si=false&es=2x&wm=false&code=%250Aimport%2520os%250Aimport%2520time%250Aimport%2520tarfile%250Aimport%2520logging%250Aimport%2520json%250Aimport%2520shutil%250A%250A%2523%2520Cargamos%2520la%2520configuraci%25C3%25B3n%2520del%2520backup%2520desde%2520el%2520archivo%2520json%250Awith%2520open%28%2522%252Fhome%252Fwhippy%252FDescargas%252Fbackup_config%2522%252C%2520%2522r%2522%29%2520as%2520f%253A%250A%2520%2520%2520%2520config%2520%253D%2520json.load%28f%29%250A%250A%2523%2520Extraemos%2520los%2520directorios%2520del%2520archivo%2520de%2520configuraci%25C3%25B3n%250ABACKUP_DIRS%2520%253D%2520config%255B%2522backup_dirs%2522%255D%250ABACKUP_LOCATION%2520%253D%2520config%255B%2522backup_location%2522%255D%250AMAX_BACKUPS%2520%253D%2520config%255B%2522max_backups%2522%255D%250ALOG_FILE%2520%253D%2520config%255B%2522log_file%2522%255D%250A%250A%2523%2520Registro%2520de%2520configuraci%25C3%25B3n%250Alogging.basicConfig%28filename%253DLOG_FILE%252C%2520level%253Dlogging.INFO%29%250A%250A%2523%2520Obtenemos%2520la%2520marca%2520de%2520tiempo%2520actual%2520para%2520usar%2520como%2520nombre%2520de%2520la%2520carpeta%2520de%2520copia%2520de%2520seguridad%250Abackup_folder_name%2520%253D%2520time.strftime%28%2522%2525Y%2525m%2525d-%2525H%2525M%2525S%2522%29%250A%250A%2523%2520Creamos%2520un%2520nuevo%2520directorio%2520de%2520copia%2520de%2520seguridad%250Abackup_folder_path%2520%253D%2520os.path.join%28BACKUP_LOCATION%252C%2520backup_folder_name%29%250Aos.makedirs%28backup_folder_path%29%250A%250A%2523%2520Creamos%2520un%2520archivo%2520tar%2520de%2520cada%2520directorio%2520de%2520copia%2520de%2520seguridad%250Afor%2520backup_dir%2520in%2520BACKUP_DIRS%253A%250A%2520%2520%2520%2520backup_file_name%2520%253D%2520os.path.basename%28backup_dir%29%2520%252B%2520%2522.tar.gz%2522%250A%2520%2520%2520%2520backup_file_path%2520%253D%2520os.path.join%28backup_folder_path%252C%2520backup_file_name%29%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520try%253A%250A%2520%2520%2520%2520%2520%2520%2520%2520with%2520tarfile.open%28backup_file_path%252C%2520%2522w%253Agz%2522%29%2520as%2520tar%253A%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520tar.add%28backup_dir%252C%2520arcname%253Dos.path.basename%28backup_dir%29%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520logging.info%28%2522Backup%2520of%2520%2525s%2520completed%2520successfully.%2522%252C%2520backup_dir%29%250A%2520%2520%2520%2520%2520%2520%2520%2520%250A%2520%2520%2520%2520except%2520Exception%2520as%2520e%253A%250A%2520%2520%2520%2520%2520%2520%2520%2520logging.error%28%2522Backup%2520of%2520%2525s%2520failed%253A%2520%2525s%2522%252C%2520backup_dir%252C%2520str%28e%29%29%250A%250A%2523%2520Eliminamos%2520las%2520copias%2520de%2520seguridad%2520m%25C3%25A1s%2520antiguas%2520si%2520hay%2520m%25C3%25A1s%2520del%2520m%25C3%25A1ximo%2520permitido%250Abackup_folders%2520%253D%2520sorted%28os.listdir%28BACKUP_LOCATION%29%252C%2520reverse%253DTrue%29%250Awhile%2520len%28backup_folders%29%2520%253E%2520MAX_BACKUPS%253A%250A%2520%2520%2520%2520oldest_backup_folder%2520%253D%2520backup_folders.pop%28%29%250A%2520%2520%2520%2520oldest_backup_path%2520%253D%2520os.path.join%28BACKUP_LOCATION%252C%2520oldest_backup_folder%29%250A%2520%2520%2520%2520logging.info%28%2522Removing%2520oldest%2520backup%2520%2525s.%2522%252C%2520oldest_backup_path%29%250A%2520%2520%2520%2520shutil.rmtree%28oldest_backup_path%29%250A%2520%2520%2520%2520backup_folders%2520%253D%2520sorted%28os.listdir%28BACKUP_LOCATION%29%252C%2520reverse%253DTrue%29%250A%250A%2523%2520Esperamos%2520diez%2520segundos%2520antes%2520de%2520volver%2520a%2520ejecutar%2520la%2520copia%2520de%2520seguridad%250Atime.sleep%2810%29"
+        style="width: 800px; height: 1000px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+    </iframe>
+
+    <iframe
+        src="https://carbon.now.sh/embed?bg=rgba%280%2C0%2C0%2C1%29&t=3024-night&wt=none&l=auto&width=680&ds=false&dsyoff=0px&dsblur=0px&wc=false&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=13.5px&lh=122%25&si=false&es=2x&wm=false&code=%257B%250A%2520%2520%2520%2520%2522backup_dirs%2522%253A%2520%255B%250A%2520%2520%2520%2520%2520%2520%2522%252Fvar%252Fwww%252Fhtml%2522%252C%250A%2520%2520%2520%2520%2520%2520%2522%252Fetc%252Fnginx%2522%250A%2520%2520%2520%2520%255D%252C%250A%2520%2520%2520%2520%2522backup_location%2522%253A%2520%2522%252Fmnt%252Fbackups%2522%252C%250A%2520%2520%2520%2520%2522max_backups%2522%253A%25205%252C%250A%2520%2520%2520%2520%2522log_file%2522%253A%2520%2522%252Fvar%252Flog%252Fbackup.log%2522%250A%2520%2520%257D%250A%2520%2520"
+        style="width: 400px; height: 300px; border:0; transform: scale(1); overflow:hidden;"
+        sandbox="allow-scripts allow-same-origin">
+    </iframe>
+            
+
+</body>
+</html>
