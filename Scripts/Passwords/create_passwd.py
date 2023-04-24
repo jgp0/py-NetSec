@@ -63,7 +63,9 @@ def check_password(password=None):
         print(f"La contraseña '{password}' no ha sido comprometida.")
 
 # Pedir al usuario si desea generar una nueva contraseña automáticamente o comprobar una existente
-print("Configuración de la contraseña:")
+print()
+
+print("Configuración de Passwd:")
 print("1. Generar una nueva contraseña automáticamente")
 print("2. Comprobar una contraseña existente")
 option = int(input("Selecciona una opción: "))

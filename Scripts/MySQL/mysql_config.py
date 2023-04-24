@@ -147,6 +147,8 @@ def exit_program():
     print("Hasta luego")
     exit()
 
+print()
+
 def main():
     """Función principal"""
     while True:

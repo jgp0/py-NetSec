@@ -1,5 +1,7 @@
 import subprocess
 
+print()
+
 # Variable global para almacenar la lista de usuarios
 usuarios = []
 

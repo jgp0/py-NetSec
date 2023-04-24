@@ -1,6 +1,8 @@
 import subprocess
 from getpass import getpass
 
+print()
+
 # Pedir al usuario el nombre del nuevo usuario
 username = input("Introduzca el nombre del nuevo usuario: ")
 

@@ -3,6 +3,8 @@ import requests
 import xml.etree.ElementTree as ET
 from prettytable import PrettyTable
 
+print()
+
 # Creamos una instancia de la clase PortScanner de nmap
 nm = nmap.PortScanner()
 
