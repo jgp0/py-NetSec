@@ -4,6 +4,8 @@ import hashlib
 import requests
 import xerox
 
+print()
+
 def generate_password():
     # Pedir al usuario la longitud de la contraseña
     length = int(input("Longitud de la contraseña: "))
@@ -63,9 +65,7 @@ def check_password(password=None):
         print(f"La contraseña '{password}' no ha sido comprometida.")
 
 # Pedir al usuario si desea generar una nueva contraseña automáticamente o comprobar una existente
-print()
-
-print("Configuración de Passwd:")
+print("Configuración de la contraseña:")
 print("1. Generar una nueva contraseña automáticamente")
 print("2. Comprobar una contraseña existente")
 option = int(input("Selecciona una opción: "))

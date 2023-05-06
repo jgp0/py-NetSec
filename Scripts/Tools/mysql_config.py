@@ -1,6 +1,8 @@
 import mysql.connector
 import getpass
 
+print()
+
 def connect_to_database():
     """Conecta a la base de datos MySQL y devuelve la conexión"""
     host = input("Introduce el host con privilegios sobre la base de datos: ")
@@ -146,8 +148,6 @@ def exit_program():
     """Sale del programa"""
     print("Hasta luego")
     exit()
-
-print()
 
 def main():
     """Función principal"""
