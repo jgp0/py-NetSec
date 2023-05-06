@@ -1,6 +1,4 @@
-<p align="center"> <img width="600" height="400" src="img/avatar.jpg"> </p>
-
-<center>
+<p align="center"> <img width="600" height="350" src="img/avatar.jpg"> </p>
 
 ## ¿Qué es NetSec?
 
@@ -77,7 +75,3 @@ Esto significa que en el futuro, es posible que se lancen nuevas versiones de Ne
 
 
 ## ¿Qué requisitos se necesitan para ejecutar esta herramienta?
-
-
-
-</center>
