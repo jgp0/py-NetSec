@@ -14,6 +14,9 @@ Sin embargo, algunas de las funcionalidades de NetSec como la creación y elimin
 
 NetSec ha sido probado en sistemas operativos como Linux (Ubuntu, Debian, Kali), Windows (Windows 10, Windows Server 2016) y macOS (Catalina, Big Sur).
 
+## ¿Qué requisitos se necesitan para ejecutar esta herramienta?
+
+En cuanto a los requisitos de hardware, depende de la cantidad de sistemas y redes que vas a escanear y gestionar con NetSec. En general, se recomienda tener un procesador de al menos 2 núcleos, 4 GB de memoria RAM y 10 GB de espacio en disco para ejecutar NetSec sin problemas.
 
 ## ¿Cómo puedo instalar esta herramienta?
 
@@ -74,4 +77,4 @@ Esto significa que en el futuro, es posible que se lancen nuevas versiones de Ne
 
 
 
-## ¿Qué requisitos se necesitan para ejecutar esta herramienta?
+
