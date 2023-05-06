@@ -1,4 +1,8 @@
+<center>
+
 ![](img/avatar.jpg)
+
+</center>
 
 ### Nahuel Ivan Troisi
 
