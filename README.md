@@ -1,6 +1,6 @@
-<p align="center"> <img width="600" height="400" src="img/avatar.jpg"> 
+<p align="center"> <img width="600" height="400" src="img/avatar.jpg"> </p>
 
-### Nahuel Ivan Troisi
+<center>
 
 ## ¿Qué es NetSec?
 
@@ -15,6 +15,7 @@ NetSec es una herramienta desarrollada en Python, por lo que ***puede ejecutarse
 Sin embargo, algunas de las funcionalidades de NetSec como la creación y eliminación de usuarios en Linux y Windows, dependen del sistema operativo donde se está ejecutando. 
 
 NetSec ha sido probado en sistemas operativos como Linux (Ubuntu, Debian, Kali), Windows (Windows 10, Windows Server 2016) y macOS (Catalina, Big Sur).
+
 
 ## ¿Cómo puedo instalar esta herramienta?
 
@@ -78,4 +79,5 @@ Esto significa que en el futuro, es posible que se lancen nuevas versiones de Ne
 ## ¿Qué requisitos se necesitan para ejecutar esta herramienta?
 
 
-</p>
+
+</center>
