@@ -3,7 +3,7 @@
 
 # NETSEC
 
-![](img/logo.png)
+![](img/avatar.jpg)
 
 ### Nahuel Ivan Troisi
 
