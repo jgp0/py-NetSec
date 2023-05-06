@@ -1,3 +1,4 @@
+
 <center>
 
 # NETSEC
@@ -45,11 +46,11 @@ Para instalar NetSec, sigue estos pasos:
     - nmap
     - prettytable
 
-Puedes hacerlo con el comando siguiente:
+    Puedes hacerlo con el comando siguiente:
 
-```
-pip install mysql-connector-python getpass requests xerox nmap prettytable
-```
+    ```
+    pip install mysql-connector-python getpass requests xerox nmap prettytable
+    ```
 
 5) Dirígete al directorio ***Scripts***. 
 
