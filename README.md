@@ -1,8 +1,3 @@
-
-<center>
-
-# NETSEC
-
 ![](img/avatar.jpg)
 
 ### Nahuel Ivan Troisi
@@ -27,15 +22,15 @@ Para instalar NetSec, sigue estos pasos:
 
 1) Descarga el archivo .zip o clona el repositorio desde GitHub.
 
-![](img/descarga.png)
+    ![](img/descarga.png)
 
 2) Asegúrate de tener Python 3 instalado en tu sistema.
 
-![](img/version.png)
+    ![](img/version.png)
 
 3) Extrae el archivo .zip.
 
-![](img/unzip.png)
+    ![](img/unzip.png)
 
 4) Asegúrate de tener los siguientes paquetes de Python instalados:
     
@@ -56,7 +51,7 @@ Para instalar NetSec, sigue estos pasos:
 
 6) Ejecuta el comando ***sudo python3 main.py*** para iniciar la aplicación.
 
-![](img/inicio.png)
+    ![](img/inicio.png)
 
 Una vez iniciada la aplicación, podrás acceder a todas las herramientas y funciones que ofrece NetSec. Recuerda que debes tener los permisos necesarios en tu sistema y en la base de datos para poder utilizar todas las funcionalidades del programa.
 
@@ -81,7 +76,3 @@ Esto significa que en el futuro, es posible que se lancen nuevas versiones de Ne
 
 
 ## ¿Qué requisitos se necesitan para ejecutar esta herramienta?
-
-
-
-</center>
