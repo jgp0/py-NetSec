@@ -1,8 +1,4 @@
-<center>
-
-![](img/avatar.jpg)
-
-</center>
+<p align="center"> <img width="600" height="400" src="img/avatar.jpg"> </p>
 
 ### Nahuel Ivan Troisi
 
