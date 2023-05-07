@@ -73,7 +73,10 @@ Sin embargo, dado que hay una variedad de sistemas de gestión de bases de datos
 
 Esto significa que en el futuro, es posible que se lancen nuevas versiones de NetSec que sean compatibles con otras bases de datos, como PostgreSQL o MongoDB, por ejemplo.
 
-## ¿Son fiables los resultados obtenidos en el escaneo de puertos?
+## ¿Son fiables los resultados obtenidos?
+
+NetSec es una herramienta diseñada para ser compatible con múltiples sistemas operativos y cumplir con las mejores prácticas de seguridad. Las diversas pruebas realizadas en diferentes sistemas han sido satisfactorias y se puede confiar en los resultados obtenidos.
+
 
 
 
